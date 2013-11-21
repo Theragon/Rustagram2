@@ -1,9 +1,6 @@
 package is.ru.honn.rustagram.service;
 
-import is.ru.honn.rustagram.domain.Comment;
-import is.ru.honn.rustagram.domain.Gender;
-import is.ru.honn.rustagram.domain.Image;
-import is.ru.honn.rustagram.domain.User;
+import is.ru.honn.rustagram.domain.*;
 
 import java.util.List;
 
@@ -11,6 +8,11 @@ import java.util.List;
  * The service layer interface for Rustagram.
  */
 public interface RustagramService {
+
+    public Like addLikeOnImage(String username, int imageId) throws UserNotFoundException, ImageNotFoundException;
+
+
+    public List<Like> getLikesOnImage(int imageId) throws ImageNotFoundException;
 
   /**
    * Signup a new user.

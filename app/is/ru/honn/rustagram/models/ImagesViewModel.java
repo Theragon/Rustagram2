@@ -1,6 +1,7 @@
 package is.ru.honn.rustagram.models;
 
 import is.ru.honn.rustagram.domain.Comment;
+import is.ru.honn.rustagram.domain.Like;
 import is.ru.honn.rustagram.service.RustagramService;
 
 import java.util.ArrayList;
@@ -22,6 +23,16 @@ public class ImagesViewModel
     protected String url;
 
     public List<Comment> comments = new ArrayList<Comment>();
+    public List<Like> likes = new ArrayList<Like>();
+
+    public int getLikesOnImage() {
+        return likes.size();
+    }
+
+    public void setLikes(List<Like> likes)
+    {
+        this.likes = likes;
+    }
 
     public String getDescription() {
         return description;

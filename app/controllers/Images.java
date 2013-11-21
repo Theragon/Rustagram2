@@ -56,6 +56,10 @@ public class Images extends AbstractRustagramController
 
         imageModel.setComments(service.getCommentsOnImage(id));
 
+        imageModel.setLikes(service.getLikesOnImage(id));
+
         return ok(image.render(imageModel, imageObj));
     }
+
+
 }

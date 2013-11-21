@@ -1,6 +1,6 @@
-// @SOURCE:/home/logan/GitRepository/Rustagram/conf/routes
-// @HASH:96ad39d1d3ce14d7a1240409ea291b4deb68f487
-// @DATE:Thu Nov 21 19:00:54 GMT 2013
+// @SOURCE:C:/GitHub/Rustagram2/conf/routes
+// @HASH:15c655d4b7650a119f876d8bc13cb201ebe1fe65
+// @DATE:Thu Nov 21 19:47:18 GMT 2013
 
 
 import play.core._

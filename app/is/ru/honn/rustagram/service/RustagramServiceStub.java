@@ -1,9 +1,6 @@
 package is.ru.honn.rustagram.service;
 
-import is.ru.honn.rustagram.domain.Comment;
-import is.ru.honn.rustagram.domain.Gender;
-import is.ru.honn.rustagram.domain.Image;
-import is.ru.honn.rustagram.domain.User;
+import is.ru.honn.rustagram.domain.*;
 import is.ru.honn.rustagram.models.ImagesViewModel;
 
 import java.util.*;
@@ -21,6 +18,7 @@ public class RustagramServiceStub implements RustagramService {
   private Map<String, User> users = new HashMap<String, User>();
   private Map<Integer, Image> images = new HashMap<Integer, Image>();
   private Map<Integer, List<Comment>> comments = new HashMap<Integer, List<Comment>>();
+  private Map<Integer, List<Like>> likes = new HashMap<Integer, List<Like>>();
 
   /**
    * Construct a service stub with no initial user defined.
@@ -165,4 +163,19 @@ public class RustagramServiceStub implements RustagramService {
     Image image = getImage(imageId); // To verify that the image exists. Will throw exception otherwise.
     return comments.get(image.getId());
   }
+
+  @Override
+  public Like addLikeOnImage(String username, int imageId) throws UserNotFoundException, ImageNotFoundException {
+      User user = getUser(username);
+      Image image = getImage(imageId);
+      Like l = new Like(username, imageId);
+      return l;
+  }
+
+  @Override
+  public List<Like> getLikesOnImage(int imageId) throws ImageNotFoundException {
+      Image image = getImage(imageId);
+      return likes.get(image.getId());
+  }
+
 }

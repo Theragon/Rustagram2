@@ -14,11 +14,13 @@
         <p>@imageModel.getCreator</p>
         <img src="@imageModel.getUrl" id="@imageModel.getId" class="image">
         <p>@imageModel.getDescription</p>
+        <p>Likes: @imageModel.getLikesOnImage</p>
         <textarea id="commentText">
 
         </textarea>
         <button class="btn" id="comment" value="Comment">Comment</button>
+        <button class="btn" id="like" value="Like">Like</button>
 <!--        <a href="#" class="comment" id="@imageModel.getId"><p id="comment">Comment</p></a> -->
-        <a href="#"><p>Like</p></a>
+<!--        <a href="#"><p>Like</p></a> -->
     </div>
 }

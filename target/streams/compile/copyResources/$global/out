@@ -1,4 +1,4 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/home/logan/GitRepository/Rustagram/conf/routes,/home/logan/GitRepository/Rustagram/target/scala-2.10/classes/routes)[0m
-[0m[[0mdebug[0m] [0m	(/home/logan/GitRepository/Rustagram/conf/ApplicationContext.xml,/home/logan/GitRepository/Rustagram/target/scala-2.10/classes/ApplicationContext.xml)[0m
-[0m[[0mdebug[0m] [0m	(/home/logan/GitRepository/Rustagram/conf/application.conf,/home/logan/GitRepository/Rustagram/target/scala-2.10/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\GitHub\Rustagram2\conf\application.conf,C:\GitHub\Rustagram2\target\scala-2.10\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\GitHub\Rustagram2\conf\ApplicationContext.xml,C:\GitHub\Rustagram2\target\scala-2.10\classes\ApplicationContext.xml)[0m
+[0m[[0mdebug[0m] [0m	(C:\GitHub\Rustagram2\conf\routes,C:\GitHub\Rustagram2\target\scala-2.10\classes\routes)[0m

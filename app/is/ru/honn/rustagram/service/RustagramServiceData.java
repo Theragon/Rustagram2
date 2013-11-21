@@ -2,11 +2,9 @@ package is.ru.honn.rustagram.service;
 
 import is.ru.honn.rustagram.data.CommentDataGateway;
 import is.ru.honn.rustagram.data.ImageDataGateway;
+import is.ru.honn.rustagram.data.LikeDataGateway;
 import is.ru.honn.rustagram.data.UserDataGateway;
-import is.ru.honn.rustagram.domain.Comment;
-import is.ru.honn.rustagram.domain.Gender;
-import is.ru.honn.rustagram.domain.Image;
-import is.ru.honn.rustagram.domain.User;
+import is.ru.honn.rustagram.domain.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,19 +19,21 @@ public class RustagramServiceData implements RustagramService {
   private UserDataGateway userDataGateway;
   private ImageDataGateway imageDataGateway;
   private CommentDataGateway commentDataGateway;
+  private LikeDataGateway likeDataGateway;
 
-  public RustagramServiceData(UserDataGateway userDataGateway, ImageDataGateway imageDataGateway, CommentDataGateway commentDataGateway) {
+  public RustagramServiceData(UserDataGateway userDataGateway, ImageDataGateway imageDataGateway, CommentDataGateway commentDataGateway, LikeDataGateway likeDataGateway) {
     this.userDataGateway = userDataGateway;
     this.imageDataGateway = imageDataGateway;
     this.commentDataGateway = commentDataGateway;
+    this.likeDataGateway = likeDataGateway;
   }
 
   /**
    * Construct a service stub with a single initial user defined. This user will be added
    * at the beginning and any error experienced will be ignored.
    */
-  public RustagramServiceData(UserDataGateway userDataGateway, ImageDataGateway imageDataGateway, CommentDataGateway commentDataGateway, User user) {
-    this(userDataGateway, imageDataGateway, commentDataGateway);
+  public RustagramServiceData(UserDataGateway userDataGateway, ImageDataGateway imageDataGateway, CommentDataGateway commentDataGateway, LikeDataGateway likeDataGateway, User user) {
+    this(userDataGateway, imageDataGateway, commentDataGateway, likeDataGateway);
 
     try{
       userSignup(user.getUsername(), user.getPassword(), user.getDisplayName(), user.getEmail());
@@ -44,7 +44,20 @@ public class RustagramServiceData implements RustagramService {
     }
   }
 
-  @Override
+    @Override
+    public Like addLikeOnImage(String username, int imageId) throws UserNotFoundException, ImageNotFoundException {
+        Like like = new Like(username, imageId);
+        int id = likeDataGateway.addLikeOnImage(like);
+        like.setId(id);
+        return like;
+    }
+
+    @Override
+    public List<Like> getLikesOnImage(int imageId) throws ImageNotFoundException {
+        return likeDataGateway.getLikesOnImage(imageId);
+    }
+
+    @Override
   public User userSignup(String username, String password, String displayName, String email, Gender gender) throws UsernameExistsException {
     User user = new User(username, password, displayName, email, Gender.MALE);
     int id = userDataGateway.addUser(user);

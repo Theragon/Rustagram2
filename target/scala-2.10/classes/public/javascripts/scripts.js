@@ -18,7 +18,8 @@ $(document).ready(function(){
         $.ajax({
          type: "POST",
          url: "http://localhost:9000/image/"+id,
-         data: text,
+         data: {'text': text,
+                'imageId': id },
          success: commentPosted(),
          dataType: "json"
          });

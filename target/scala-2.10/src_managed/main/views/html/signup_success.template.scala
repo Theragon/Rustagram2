@@ -38,8 +38,8 @@ Seq[Any](format.raw/*1.1*/("""TODO: implement"""))}
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Nov 20 20:02:22 GMT 2013
-                    SOURCE: /home/logan/GitRepository/Rustagram/app/views/signup_success.scala.html
+                    DATE: Thu Nov 21 19:47:20 GMT 2013
+                    SOURCE: C:/GitHub/Rustagram2/app/views/signup_success.scala.html
                     HASH: ca746c211d0cfb898fe6896e5f1edb0413170492
                     MATRIX: 864->0
                     LINES: 29->1
