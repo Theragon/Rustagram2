@@ -1,0 +1,24 @@
+@(imageModel: is.ru.honn.rustagram.models.ImagesViewModel, image: is.ru.honn.rustagram.domain.Image)
+<!--@(image: is.ru.honn.rustagram.domain.Image)-->
+
+@import play.api.Play.current
+
+@main(title = "Welcome") {
+<!--    <div>
+        <p>@image.getCreatorUsername</p>
+        <img src="@image.getUrl">
+        <p>@image.getDescription</p>
+    </div>
+-->
+    <div>
+        <p>@imageModel.getCreator</p>
+        <img src="@imageModel.getUrl" id="@imageModel.getId" class="image">
+        <p>@imageModel.getDescription</p>
+        <textarea id="commentText">
+
+        </textarea>
+        <button class="btn" id="comment" value="Comment">Comment</button>
+<!--        <a href="#" class="comment" id="@imageModel.getId"><p id="comment">Comment</p></a> -->
+        <a href="#"><p>Like</p></a>
+    </div>
+}

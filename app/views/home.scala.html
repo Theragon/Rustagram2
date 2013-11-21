@@ -1,0 +1,35 @@
+@(images: List[is.ru.honn.rustagram.domain.Image])
+
+@import play.api.Play.current
+
+@main(title = "Welcome") {
+
+    <h2>Welcome to Rustagram</h2>
+
+    @if(!session.get("username")) {
+
+        <h3>Looks like you're new here! Welcome!</h3>
+        <p>
+            <a class="btn" href="@routes.Users.showSignupForm()">Sign up</a>
+            <a class="btn" href="@routes.Users.showLoginForm()">Login</a>
+        </p>
+
+    } else {
+
+        <h3>Good to see you again @{session.get("displayName")}!</h3>
+
+        <h4>Here should be a list of images from the people I'm following</h4>
+
+        <table>
+            @for(image <- images) {
+                <div id="image">
+                    <h5>@image.getCreatorUsername</h5>
+                    <a href="/image/@image.getId"><img src="@image.getUrl"></a>
+                    <p>@image.getDescription</p>
+<!--                    <a href=""><p>Comment</p></a>
+                    <a href=""><p>Like</p></a>-->
+                </div>
+            }
+        </table>
+    }
+}

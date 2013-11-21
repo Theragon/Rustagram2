@@ -1,0 +1,26 @@
+@(addImageForm: Form[is.ru.honn.rustagram.domain.Image])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(title = "Login", nav = "login") {
+    @helper.form(action = routes.Images.processImageForm) {
+        <fieldset>
+            <legend>Add new image</legend>
+            @inputText(
+                addImageForm("url"),
+                '_label -> "URL",
+                '_error -> addImageForm.globalError
+            )
+            @inputText(
+                addImageForm("description"),
+                '_label -> "Description"
+            )
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" class="btn primary" value="Add Image">
+            <a href="@routes.Application.index" class="btn">Cancel</a>
+        </div>
+    }
+}
